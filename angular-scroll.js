@@ -257,6 +257,10 @@ angular.module('duScroll.spyAPI', ['duScroll.scrollContainerAPI'])
       } else {
         bottomReached = Math.round($window.pageYOffset + $window.innerHeight) >= $document[0].body.scrollHeight;
       }
+      if (bottomReached && window.pageYOffset === 0) {
+        bottomReached = false;
+      }
+
       var compareProperty = (bottomReached ? 'bottom' : 'top');
 
       var i, currentlyActive, toBeActive, spies, spy, pos;
